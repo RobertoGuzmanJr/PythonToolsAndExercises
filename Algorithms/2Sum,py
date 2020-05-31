@@ -1,0 +1,11 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        values = {}
+        for i in range(len(nums)):
+            if values.get(nums[i],"NA") == "NA":
+                values[nums[i]] = [i]
+            else:
+                values[nums[i]].append(i)
+            v = values.get(target-nums[i],"NA")
+            if v != "NA" and v[0] != i:
+                return [i,v[0]]
